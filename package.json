@@ -1,0 +1,35 @@
+{
+  "name": "hello-grpc",
+  "version": "1.0.0",
+  "description": "Basic Hello World gRPC Server application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "client": "node client/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.1.0",
+    "@grpc/proto-loader": "^0.5.0",
+    "async": "^1.5.2",
+    "dotenv": "^16.0.3",
+    "google-protobuf": "^3.0.0",
+    "lodash": "^4.6.1",
+    "minimist": "^1.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgonzalezg9/Hello-gRPC.git"
+  },
+  "keywords": [
+    "gRPC",
+    "nodejs",
+    "javascript"
+  ],
+  "author": "Manuel González García",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mgonzalezg9/Hello-gRPC/issues"
+  },
+  "homepage": "https://github.com/mgonzalezg9/Hello-gRPC#readme"
+}
