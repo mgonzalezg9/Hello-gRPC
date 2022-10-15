@@ -4,8 +4,9 @@
   "description": "Basic Hello World gRPC Server application",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "client": "node client/index.js",
+    "build": "babel src/index.js -d dist",
+    "start": "babel-node src/index.js",
+    "client:hello": "babel-node client/HelloWorld.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -31,5 +32,11 @@
   "bugs": {
     "url": "https://github.com/mgonzalezg9/Hello-gRPC/issues"
   },
-  "homepage": "https://github.com/mgonzalezg9/Hello-gRPC#readme"
+  "homepage": "https://github.com/mgonzalezg9/Hello-gRPC#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.3",
+    "@babel/node": "^7.19.1",
+    "@babel/preset-env": "^7.19.4"
+  }
 }

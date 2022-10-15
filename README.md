@@ -1,50 +1,80 @@
-gRPC in 3 minutes (Node.js)
-===========================
+# Hello gRPC !
 
-PREREQUISITES
--------------
+Hello gRPC is a simple NodeJS Backend that uses gRPC as a communication protocol. Its main purpose is to get familiarized with this technology and serve as a boilerplate.
 
-- `node`: This requires Node 0.12.x or greater.
+- [Hello gRPC !](#hello-grpc-)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Env keys](#env-keys)
+  - [Run](#run)
+    - [Server](#server)
+    - [Client](#client)
+  - [ES6 support](#es6-support)
 
-INSTALL
--------
+## Features
 
-   ```sh
-   $ # Get the gRPC repository
-   $ export REPO_ROOT=grpc # REPO root can be any directory of your choice
-   $ git clone -b RELEASE_TAG_HERE https://github.com/grpc/grpc $REPO_ROOT
-   $ cd $REPO_ROOT
+- Server launch
+- Client launch
+- Protobuf definition
+- ES6 support
 
-   $ cd examples/node
-   $ npm install
-   ```
+## Installation
 
-TRY IT!
--------
+```bash
+npm install
+```
 
-There are two ways to generate the code needed to work with protocol buffers in Node.js - one approach uses [Protobuf.js](https://github.com/dcodeIO/ProtoBuf.js/) to dynamically generate the code at runtime, the other uses code statically generated using the protocol buffer compiler `protoc`. The examples behave identically, and either server can be used with either client.
+## Env keys
 
- - Run the server
+```bash
+SERVER_URL = "YOUR_IP:YOUR_PORT" # Mine was "0.0.0.0:50051"
+```
 
-   ```sh
-   $ # from this directory
-   $ node ./dynamic_codegen/greeter_server.js &
-   $ # OR
-   $ node ./static_codegen/greeter_server.js &
-   ```
+## Run
 
- - Run the client
+### Server
 
-   ```sh
-   $ # from this directory
-   $ node ./dynamic_codegen/greeter_client.js
-   $ # OR
-   $ node ./static_codegen/greeter_client.js
-   ```
+```bash
+npm start
+```
 
-TUTORIAL
---------
-You can find a more detailed tutorial in [gRPC Basics: Node.js][]
+### Client
 
-[Install gRPC Node]:../../src/node
-[gRPC Basics: Node.js]:https://grpc.io/docs/languages/node/basics
+This is a simple JavaScript client that tests Hello proto and comes bundled with this project.
+
+```bash
+npm run client:hello
+```
+
+## ES6 support
+
+The usage of features like `import` and `export` is possible thanks to [Babel](https://babeljs.io/). You can find the [configuration file](.babelrc) in the root directory of the project.
+
+The [steps to follow](https://mugan86.medium.com/configurar-babel-en-nodejs-525fd101990b) are:
+
+1. Install the dependencies
+
+```bash
+npm install -D @babel/core @babel/cli @babel/node @babel/preset-env
+```
+
+2. Create a `.babelrc` file in the root directory of the project
+
+```json
+{
+  "presets": ["@babel/preset-env"]
+}
+```
+
+3. Add proper scripts to `package.json`
+
+```json
+{
+  "scripts": {
+    "start": "babel-node src/server.js",
+    "client:hello": "babel-node src/client.js"
+  }
+}
+```
+
+4. Enjoy! :)
