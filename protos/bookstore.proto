@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package bookstore;
+
+option java_multiple_files = true;
+option java_outer_classname = "BookstoreProto";
+option java_package = "com.google.endpoints.examples.bookstore";
+
+import "google/protobuf/empty.proto";
+
+// A simple Book CRUD API.
+service Bookstore {
+  // Returns a list of books.
+  rpc ListAllBooks (google.protobuf.Empty) returns (ListBooksResponse) {}
+  // Creates a new book.
+  rpc CreateBook(CreateBookRequest) returns (Book) {}
+  // Returns a specific book.
+  rpc GetBook(GetBookRequest) returns (Book) {}
+  // Deletes a book from a shelf.
+  rpc DeleteBook(DeleteBookRequest) returns (google.protobuf.Empty) {}
+}
+
+// A book resource.
+message Book {
+  // A unique book id.
+  int64 id = 1;
+  // An author of the book.
+  string author = 2;
+  // A book title.
+  string title = 3;
+}
+
+// Response message to ListBooks method.
+message ListBooksResponse {
+  // The books on the shelf.
+  repeated Book books = 1;
+}
+
+// Request message for CreateBook method.
+message CreateBookRequest {
+  // A book resource to create on the shelf.
+  Book book = 1;
+}
+
+// Request message for GetBook method.
+message GetBookRequest {
+  // The ID of the book to retrieve.
+  int64 book = 1;
+}
+
+// Request message for DeleteBook method.
+message DeleteBookRequest {
+  // The ID of the book to delete.
+  int64 book = 1;
+}

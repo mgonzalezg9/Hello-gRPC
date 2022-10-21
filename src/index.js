@@ -1,6 +1,6 @@
 import { sayHello } from "./services/hello";
 import { ServerCredentials, Server } from "@grpc/grpc-js";
-import { HelloProto } from "./protos/HelloWorld";
+import { HelloProto } from "./protos";
 import { SERVER_URL } from "../config";
 
 /**
